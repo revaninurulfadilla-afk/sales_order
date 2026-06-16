@@ -53,7 +53,66 @@ $route['default_controller'] = 'auth';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// Auth
+$route['login']              = 'auth/index';
+$route['login/proses']       = 'auth/login';
+$route['auth/logout']        = 'auth/logout';
 
-$route['login'] = 'auth';
-$route['login/proses'] = 'auth/login';
-$route['logout'] = 'auth/logout';
+// Dashboard
+$route['dashboard']          = 'dashboard/index';
+
+// Produk
+$route['produk']             = 'produk/index';
+$route['produk/tambah']      = 'produk/tambah';
+$route['produk/simpan']      = 'produk/simpan';
+$route['produk/edit/(:num)'] = 'produk/edit/$1';
+$route['produk/update/(:num)'] = 'produk/update/$1';
+$route['produk/hapus/(:num)'] = 'produk/hapus/$1';
+
+// Pelanggan
+$route['pelanggan']               = 'pelanggan/index';
+$route['pelanggan/tambah']        = 'pelanggan/tambah';
+$route['pelanggan/simpan']        = 'pelanggan/simpan';
+$route['pelanggan/edit/(:num)']   = 'pelanggan/edit/$1';
+$route['pelanggan/update/(:num)'] = 'pelanggan/update/$1';
+$route['pelanggan/hapus/(:num)']  = 'pelanggan/hapus/$1';
+
+// Sales
+$route['sales']               = 'sales/index';
+$route['sales/tambah']        = 'sales/tambah';
+$route['sales/simpan']        = 'sales/simpan';
+$route['sales/edit/(:num)']   = 'sales/edit/$1';
+$route['sales/update/(:num)'] = 'sales/update/$1';
+$route['sales/hapus/(:num)']  = 'sales/hapus/$1';
+
+// Sales Order
+$route['sales_order']                    = 'sales_order/index';
+$route['sales_order/tambah']             = 'sales_order/tambah';
+$route['sales_order/simpan']             = 'sales_order/simpan';
+$route['sales_order/detail/(:num)']      = 'sales_order/detail/$1';
+$route['sales_order/edit/(:num)']        = 'sales_order/edit/$1';
+$route['sales_order/update/(:num)']      = 'sales_order/update/$1';
+$route['sales_order/hapus/(:num)']       = 'sales_order/hapus/$1';
+$route['sales_order/ubah_status/(:num)'] = 'sales_order/ubah_status/$1';
+$route['sales_order/get_produk/(:num)']  = 'sales_order/get_produk/$1';
+
+// Laporan
+$route['laporan']             = 'laporan/index';
+$route['laporan/penjualan']   = 'laporan/penjualan';
+$route['laporan/sales']       = 'laporan/per_sales';
+$route['laporan/produk']      = 'laporan/per_produk';
+$route['laporan/export_pdf']  = 'laporan/export_pdf';
+$route['laporan/export_sales_pdf']   = 'laporan/export_sales_pdf';
+$route['laporan/export_produk_pdf']  = 'laporan/export_produk_pdf';
+
+// Users
+$route['users']               = 'users/index';
+$route['users/tambah']        = 'users/tambah';
+$route['users/simpan']        = 'users/simpan';
+$route['users/edit/(:num)']   = 'users/edit/$1';
+$route['users/update/(:num)'] = 'users/update/$1';
+$route['users/hapus/(:num)']  = 'users/hapus/$1';
+
+// Profile
+$route['profile']             = 'users/profile';
+$route['profile/update']      = 'users/update_profile';
