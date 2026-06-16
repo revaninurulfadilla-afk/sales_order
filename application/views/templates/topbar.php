@@ -5,7 +5,7 @@
     <div class="flex grow items-center justify-between px-4 py-4 lg:px-6">
 
         <!-- LEFT -->
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-4 dark:text-white">
 
             <button
                 @click.stop="sidebarToggle = !sidebarToggle"
@@ -26,7 +26,7 @@
 
             </button>
 
-            <div class="hidden lg:block">
+            <div class="hidden lg:block dark:text-white">
 
                 <form action="" method="GET">
 
@@ -51,10 +51,20 @@
 
             <!-- DARK MODE -->
             <button
-                @click.prevent="darkMode = !darkMode"
+                @click.prevent="
+                    darkMode = !darkMode;
+                    localStorage.setItem('darkMode', darkMode);
+
+                    if(darkMode){
+                        document.documentElement.classList.add('dark');
+                    }else{
+                        document.documentElement.classList.remove('dark');
+                    }
+                "
                 class="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 dark:border-gray-800">
 
-                🌙
+                <span x-show="!darkMode">🌙</span>
+                <span x-show="darkMode">☀️</span>
 
             </button>
 
@@ -62,7 +72,7 @@
             <div
                 x-data="{ dropdownOpen:false }"
                 @click.outside="dropdownOpen = false"
-                class="relative">
+                class="relative dark:text-white">
 
                 <a
                     href="#"
@@ -90,7 +100,7 @@
                 <!-- DROPDOWN -->
                 <div
                     x-show="dropdownOpen"
-                    class="absolute right-0 mt-3 w-60 rounded-xl border border-gray-200 bg-white p-3 dark:border-gray-800 dark:bg-gray-900">
+                    class="absolute right-0 mt-3 w-60 rounded-xl border border-gray-200 bg-white p-3 dark:border-gray-800 dark:bg-gray-900 dark:text-white">
 
                     <a
                         href="<?= site_url('profile') ?>"

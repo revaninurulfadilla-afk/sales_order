@@ -1,6 +1,8 @@
 </div>
 
-<script src="<?= base_url('assets/js/bundle.js'); ?>"></script>
+<script src="<?= base_url('assets/build/bundle.js'); ?>"></script>
 
+</div> <!-- content -->
+</div> <!-- wrapper -->
 </body>
 </html>

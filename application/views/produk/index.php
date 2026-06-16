@@ -1,0 +1,199 @@
+<main>
+    <div class="p-4 mx-auto max-w-(--breakpoint-2xl) md:p-6">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-6">
+
+            <div>
+                <h2 class="text-2xl font-bold text-gray-800 dark:text-white">
+                    Master Produk
+                </h2>
+
+                <p class="text-gray-500">
+                    Data Produk Sales Order
+                </p>
+            </div>
+
+            <a href="<?= site_url('produk/tambah') ?>"
+               class="inline-flex items-center justify-center rounded-lg bg-brand-500 px-5 py-3 text-sm font-medium text-white hover:bg-brand-600">
+
+                + Tambah Produk
+
+            </a>
+
+        </div>
+
+        <!-- TABLE -->
+        <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
+
+            <!-- Search -->
+            <div class="flex items-center justify-between p-5 border-b border-gray-200 dark:border-gray-800">
+
+                <div class="flex items-center gap-3">
+
+                    <span class="text-sm text-gray-500">
+                        Show
+                    </span>
+
+                    <select class="rounded-lg border border-gray-300 px-3 py-2 text-sm">
+                        <option>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                    </select>
+
+                    <span class="text-sm text-gray-500">
+                        entries
+                    </span>
+
+                </div>
+
+                <div>
+
+                    <input
+                        type="text"
+                        placeholder="Search..."
+                        class="h-11 rounded-lg border border-gray-300 px-4 text-sm dark:border-gray-700 dark:bg-gray-900 dark:text-white">
+
+                </div>
+
+            </div>
+
+            <!-- Table -->
+            <div class="max-w-full overflow-x-auto">
+
+                <table class="w-full">
+
+                    <thead>
+
+                        <tr class="border-b border-gray-200 dark:border-gray-800">
+
+                            <th class="px-5 py-4 text-left text-sm font-medium text-gray-500">
+                                Kode Produk
+                            </th>
+
+                            <th class="px-5 py-4 text-left text-sm font-medium text-gray-500">
+                                Nama Produk
+                            </th>
+
+                            <th class="px-5 py-4 text-left text-sm font-medium text-gray-500">
+                                Harga
+                            </th>
+
+                            <th class="px-5 py-4 text-left text-sm font-medium text-gray-500">
+                                Stok
+                            </th>
+
+                            <th class="px-5 py-4 text-left text-sm font-medium text-gray-500">
+                                Satuan
+                            </th>
+
+                            <th class="px-5 py-4 text-center text-sm font-medium text-gray-500">
+                                Status
+                            </th>
+
+                            <th class="px-5 py-4 text-center text-sm font-medium text-gray-500">
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                    <?php if(!empty($produk)): ?>
+
+                        <?php foreach($produk as $row): ?>
+
+                        <tr class="border-b border-gray-100 dark:border-gray-800">
+
+                            <td class="px-5 py-4 text-gray-700 dark:text-gray-300">
+                                <?= $row->kode_produk ?>
+                            </td>
+
+                            <td class="px-5 py-4 font-medium text-gray-800 dark:text-white">
+                                <?= $row->nama_produk ?>
+                            </td>
+
+                            <td class="px-5 py-4 text-gray-700 dark:text-gray-300">
+                                Rp <?= number_format($row->harga,0,',','.') ?>
+                            </td>
+
+                            <td class="px-5 py-4 text-gray-700 dark:text-gray-300">
+                                <?= $row->stok ?>
+                            </td>
+
+                            <td class="px-5 py-4 text-gray-700 dark:text-gray-300">
+                                <?= $row->satuan ?>
+                            </td>
+
+                            <td class="px-5 py-4 text-center">
+
+                                <?php if($row->status == 1): ?>
+
+                                    <span class="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">
+                                        Aktif
+                                    </span>
+
+                                <?php else: ?>
+
+                                    <span class="rounded-full bg-red-100 px-3 py-1 text-xs font-medium text-red-700">
+                                        Nonaktif
+                                    </span>
+
+                                <?php endif; ?>
+
+                            </td>
+
+                            <td class="px-5 py-4">
+
+                                <div class="flex items-center justify-center gap-3">
+
+                                    <a href="<?= site_url('produk/edit/'.$row->id) ?>"
+                                       class="text-blue-600 hover:text-blue-800">
+
+                                        ✏️
+
+                                    </a>
+
+                                    <a href="<?= site_url('produk/hapus/'.$row->id) ?>"
+                                       onclick="return confirm('Hapus data ini?')"
+                                       class="text-red-600 hover:text-red-800">
+
+                                        🗑️
+
+                                    </a>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                        <?php endforeach; ?>
+
+                    <?php else: ?>
+
+                        <tr>
+
+                            <td colspan="7"
+                                class="px-5 py-6 text-center text-gray-500 dark:text-gray-400">
+
+                                Belum ada data produk
+
+                            </td>
+
+                        </tr>
+
+                    <?php endif; ?>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+</main>

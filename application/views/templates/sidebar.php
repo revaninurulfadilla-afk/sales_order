@@ -1,204 +1,260 @@
+<?php
+$role = $this->session->userdata('role');
+$menu = $this->uri->segment(1);
+?>
+
 <aside
   :class="sidebarToggle ? 'translate-x-0 lg:w-[90px]' : '-translate-x-full'"
-  class="sidebar fixed left-0 top-0 z-9999 flex h-screen w-[290px] flex-col overflow-y-hidden border-r border-gray-200 bg-white px-5 dark:border-gray-800 dark:bg-black lg:static lg:translate-x-0"
->
+  class="sidebar fixed left-0 top-0 z-9999 flex h-screen w-[290px] flex-col overflow-y-hidden border-r border-gray-200 bg-white px-5 dark:border-gray-800 dark:bg-black lg:static lg:translate-x-0">
 
-  <!-- Logo -->
-  <div
-    :class="sidebarToggle ? 'justify-center' : 'justify-between'"
-    class="flex items-center gap-2 pt-8 pb-7"
-  >
-    <a href="<?= site_url('dashboard') ?>">
+    <!-- Logo -->
+    <div
+      :class="sidebarToggle ? 'justify-center' : 'justify-between'"
+      class="flex items-center gap-2 pt-8 pb-7">
 
-      <span class="logo" :class="sidebarToggle ? 'hidden' : ''">
-        <h2 class="text-2xl font-bold text-brand-500">
-          Sales Order
-        </h2>
-      </span>
+        <a href="<?= site_url('dashboard') ?>">
 
-      <span
-        class="logo-icon text-xl font-bold"
-        :class="sidebarToggle ? 'lg:block' : 'hidden'"
-      >
-        SO
-      </span>
+            <span class="logo" :class="sidebarToggle ? 'hidden' : ''">
+                <h2 class="text-2xl font-bold text-brand-500">
+                    Sales Order
+                </h2>
+            </span>
 
-    </a>
-  </div>
+            <span
+              class="logo-icon text-xl font-bold"
+              :class="sidebarToggle ? 'lg:block' : 'hidden'">
+                SO
+            </span>
 
-  <div class="flex flex-col overflow-y-auto no-scrollbar">
+        </a>
 
-    <nav x-data="{selected:'master'}">
+    </div>
 
-      <!-- DASHBOARD -->
-      <div>
-        <h3 class="mb-4 text-xs uppercase text-gray-400">
-          <span :class="sidebarToggle ? 'lg:hidden' : ''">
-            Dashboard
-          </span>
-        </h3>
+    <div class="flex flex-col overflow-y-auto no-scrollbar">
 
-        <ul class="flex flex-col gap-2 mb-6">
+        <nav>
 
-          <li>
-            <a href="<?= site_url('dashboard') ?>"
-               class="menu-item menu-item-active">
+            <!-- DASHBOARD -->
+            <div>
 
-              <span class="menu-item-text"
-                    :class="sidebarToggle ? 'lg:hidden' : ''">
-                Dashboard
-              </span>
+                <h3 class="mb-4 text-xs uppercase text-gray-400">
+                    Dashboard
+                </h3>
 
-            </a>
-          </li>
+                <ul class="flex flex-col gap-2 mb-6">
 
-        </ul>
-      </div>
+                    <li>
 
-      <!-- MASTER DATA -->
-      <div>
+                        <a href="<?= site_url('dashboard') ?>"
+                           class="menu-item <?= ($menu == 'dashboard') ? 'menu-item-active' : 'menu-item-inactive' ?>">
 
-        <h3 class="mb-4 text-xs uppercase text-gray-400">
-          <span :class="sidebarToggle ? 'lg:hidden' : ''">
-            Master Data
-          </span>
-        </h3>
+                            <span class="menu-item-text">
+                                Dashboard
+                            </span>
 
-        <ul class="flex flex-col gap-2 mb-6">
+                        </a>
 
-          <li>
-            <a href="<?= site_url('produk') ?>"
-               class="menu-item menu-item-inactive">
-              <span class="menu-item-text"
-                    :class="sidebarToggle ? 'lg:hidden' : ''">
-                Produk
-              </span>
-            </a>
-          </li>
+                    </li>
 
-          <li>
-            <a href="<?= site_url('pelanggan') ?>"
-               class="menu-item menu-item-inactive">
-              <span class="menu-item-text"
-                    :class="sidebarToggle ? 'lg:hidden' : ''">
-                Pelanggan
-              </span>
-            </a>
-          </li>
+                </ul>
 
-          <li>
-            <a href="<?= site_url('sales') ?>"
-               class="menu-item menu-item-inactive">
-              <span class="menu-item-text"
-                    :class="sidebarToggle ? 'lg:hidden' : ''">
-                Sales
-              </span>
-            </a>
-          </li>
+            </div>
 
-        </ul>
+            <!-- ADMIN -->
+            <?php if($role == 'admin'): ?>
 
-      </div>
+            <div>
 
-      <!-- TRANSAKSI -->
-      <div>
+                <h3 class="mb-4 text-xs uppercase text-gray-400">
+                    Master Data
+                </h3>
 
-        <h3 class="mb-4 text-xs uppercase text-gray-400">
-          <span :class="sidebarToggle ? 'lg:hidden' : ''">
-            Transaksi
-          </span>
-        </h3>
+                <ul class="flex flex-col gap-2 mb-6">
 
-        <ul class="flex flex-col gap-2 mb-6">
+                    <li>
 
-          <li>
-            <a href="<?= site_url('sales_order') ?>"
-               class="menu-item menu-item-inactive">
+                        <a href="<?= site_url('produk') ?>"
+                           class="menu-item <?= ($menu == 'produk') ? 'menu-item-active' : 'menu-item-inactive' ?>">
 
-              <span class="menu-item-text"
-                    :class="sidebarToggle ? 'lg:hidden' : ''">
-                Sales Order
-              </span>
+                            <span class="menu-item-text">
+                                Produk
+                            </span>
 
-            </a>
-          </li>
+                        </a>
 
-        </ul>
+                    </li>
 
-      </div>
+                    <li>
 
-      <!-- LAPORAN -->
-      <div>
+                        <a href="#"
+                           class="menu-item menu-item-inactive">
 
-        <h3 class="mb-4 text-xs uppercase text-gray-400">
-          <span :class="sidebarToggle ? 'lg:hidden' : ''">
-            Laporan
-          </span>
-        </h3>
+                            <span class="menu-item-text">
+                                Pelanggan
+                            </span>
 
-        <ul class="flex flex-col gap-2 mb-6">
+                        </a>
 
-          <li>
-            <a href="<?= site_url('laporan/sales') ?>"
-               class="menu-item menu-item-inactive">
-              <span class="menu-item-text"
-                    :class="sidebarToggle ? 'lg:hidden' : ''">
-                Laporan Sales
-              </span>
-            </a>
-          </li>
+                    </li>
 
-          <li>
-            <a href="<?= site_url('laporan/produk') ?>"
-               class="menu-item menu-item-inactive">
-              <span class="menu-item-text"
-                    :class="sidebarToggle ? 'lg:hidden' : ''">
-                Laporan Produk
-              </span>
-            </a>
-          </li>
+                    <li>
+                    <a href="#"
+                    class="menu-item menu-item-inactive">
 
-        </ul>
+                        <span class="menu-item-text">
+                            Sales
+                        </span>
 
-      </div>
+                    </a>
+                </li>
 
-      <!-- USER -->
-      <div>
+                </ul>
 
-        <h3 class="mb-4 text-xs uppercase text-gray-400">
-          <span :class="sidebarToggle ? 'lg:hidden' : ''">
-            Pengguna
-          </span>
-        </h3>
+            </div>
 
-        <ul class="flex flex-col gap-2 mb-6">
+            <div>
 
-          <li>
-            <a href="<?= site_url('users') ?>"
-               class="menu-item menu-item-inactive">
-              <span class="menu-item-text"
-                    :class="sidebarToggle ? 'lg:hidden' : ''">
-                User Management
-              </span>
-            </a>
-          </li>
+                <h3 class="mb-4 text-xs uppercase text-gray-400">
+                    Transaksi
+                </h3>
 
-          <li>
-            <a href="<?= site_url('auth/logout') ?>"
-               class="menu-item menu-item-inactive">
-              <span class="menu-item-text"
-                    :class="sidebarToggle ? 'lg:hidden' : ''">
-                Logout
-              </span>
-            </a>
-          </li>
+                <ul class="flex flex-col gap-2 mb-6">
 
-        </ul>
+                    <li>
 
-      </div>
+                        <a href="#"
+                           class="menu-item menu-item-inactive">
 
-    </nav>
+                            <span class="menu-item-text">
+                                Sales Order
+                            </span>
 
-  </div>
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <?php endif; ?>
+
+            <!-- SALES -->
+            <?php if($role == 'sales'): ?>
+
+            <div>
+
+                <h3 class="mb-4 text-xs uppercase text-gray-400">
+                    Transaksi
+                </h3>
+
+                <ul class="flex flex-col gap-2 mb-6">
+
+                    <li>
+
+                        <a href="#"
+                           class="menu-item menu-item-inactive">
+
+                            <span class="menu-item-text">
+                                Sales Order
+                            </span>
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <?php endif; ?>
+
+            <!-- MANAGER -->
+            <?php if($role == 'manager'): ?>
+
+            <div>
+
+                <h3 class="mb-4 text-xs uppercase text-gray-400">
+                    Laporan
+                </h3>
+
+                <ul class="flex flex-col gap-2 mb-6">
+
+                    <li>
+
+                        <a href="#"
+                           class="menu-item menu-item-inactive">
+
+                            <span class="menu-item-text">
+                                Laporan Penjualan
+                            </span>
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="#"
+                           class="menu-item menu-item-inactive">
+
+                            <span class="menu-item-text">
+                                Laporan Produk
+                            </span>
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="#"
+                           class="menu-item menu-item-inactive">
+
+                            <span class="menu-item-text">
+                                Laporan Sales
+                            </span>
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <?php endif; ?>
+
+            <!-- ACCOUNT -->
+            <div>
+
+                <h3 class="mb-4 text-xs uppercase text-gray-400">
+                    Account
+                </h3>
+
+                <ul class="flex flex-col gap-2 mb-6">
+
+                    <li>
+
+                        <a href="<?= site_url('auth/logout') ?>"
+                           class="menu-item menu-item-inactive">
+
+                            <span class="menu-item-text">
+                                Logout
+                            </span>
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+
+    </div>
 
 </aside>
+
+<div class="relative flex flex-col flex-1 overflow-x-hidden overflow-y-auto">
