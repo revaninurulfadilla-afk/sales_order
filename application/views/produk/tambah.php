@@ -1,12 +1,11 @@
 <main>
-    <div class="p-4 mx-auto max-w-4xl md:p-6">
-
+    <div class="p-6 bg-gray-50 dark:bg-gray-900 min-h-screen">
         <div class="mb-6">
             <h2 class="text-3xl font-bold text-gray-800 dark:text-white">
                 Tambah Produk
             </h2>
 
-            <p class="text-gray-500">
+            <p class="text-gray-500 ">
                 Form tambah data produk
             </p>
         </div>
@@ -15,16 +14,16 @@
 
             <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
 
-                <div class="border-b border-gray-200 px-6 py-4 dark:border-gray-800">
+                <div class="border-b border-gray-200 px-6 py-4 dark:border-gray-800 dark:text-white">
                     <h3 class="font-semibold">
                         Data Produk
                     </h3>
                 </div>
 
-                <div class="p-6 space-y-5">
+                <div class="p-6 space-y-5 dark:text-white">
 
                     <div>
-                        <label class="mb-2 block">
+                        <label class="mb-2 block ">
                             Kode Produk
                         </label>
 
@@ -133,7 +132,7 @@
 
                 <a
                     href="<?= site_url('produk') ?>"
-                    class="rounded-lg border px-6 py-3">
+                    class="rounded-lg border px-6 py-3 dark:text-white">
 
                     Kembali
 

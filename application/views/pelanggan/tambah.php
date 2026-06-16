@@ -1,6 +1,5 @@
 <main>
-    <div class="p-4 mx-auto max-w-4xl md:p-6">
-
+     <div class="p-6 bg-gray-50 dark:bg-gray-900 min-h-screen">
         <div class="mb-6">
             <h2 class="text-3xl font-bold text-gray-800 dark:text-white">
                 Tambah Pelanggan
@@ -25,7 +24,7 @@
 
                     <!-- Kode Pelanggan -->
                     <div>
-                        <label class="mb-2 block font-medium">
+                        <label class="mb-2 block font-medium dark:text-white">
                             Kode Pelanggan
                         </label>
 
@@ -34,12 +33,12 @@
                             name="kode_pelanggan"
                             placeholder="PLG001"
                             required
-                            class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-brand-500 focus:outline-none">
+                            class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-brand-500 focus:outline-none dark:text-white">
                     </div>
 
                     <!-- Nama Pelanggan -->
                     <div>
-                        <label class="mb-2 block font-medium">
+                        <label class="mb-2 block font-medium dark:text-white">
                             Nama Pelanggan
                         </label>
 
@@ -48,25 +47,25 @@
                             name="nama_pelanggan"
                             placeholder="PT Teknologi Nusantara"
                             required
-                            class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-brand-500 focus:outline-none">
+                            class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-brand-500 focus:outline-none dark:text-white">
                     </div>
 
                     <!-- Alamat -->
                     <div>
-                        <label class="mb-2 block font-medium">
+                        <label class="mb-2 block font-medium dark:text-white">
                             Alamat
                         </label>
 
                         <textarea
                             name="alamat"
                             rows="4"
-                            class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-brand-500 focus:outline-none"
+                            class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-brand-500 focus:outline-none dark:text-white"
                             placeholder="Masukkan alamat pelanggan"></textarea>
                     </div>
 
                     <!-- Telepon -->
                     <div>
-                        <label class="mb-2 block font-medium">
+                        <label class="mb-2 block font-medium dark:text-white">
                             Telepon
                         </label>
 
@@ -74,12 +73,12 @@
                             type="text"
                             name="telepon"
                             placeholder="08123456789"
-                            class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-brand-500 focus:outline-none">
+                            class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-brand-500 focus:outline-none dark:text-white">
                     </div>
 
                     <!-- Email -->
                     <div>
-                        <label class="mb-2 block font-medium">
+                        <label class="mb-2 block font-medium dark:text-white">
                             Email
                         </label>
 
@@ -87,18 +86,18 @@
                             type="email"
                             name="email"
                             placeholder="customer@email.com"
-                            class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-brand-500 focus:outline-none">
+                            class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-brand-500 focus:outline-none dark:text-white">
                     </div>
 
                     <!-- Status -->
                     <div>
-                        <label class="mb-2 block font-medium">
+                        <label class="mb-2 block font-medium dark:text-white">
                             Status
                         </label>
 
                         <select
                             name="status"
-                            class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-brand-500 focus:outline-none">
+                            class="w-full rounded-lg border dark:text-white px-4 py-3 focus:border-brand-500 focus:outline-none dark:text-white">
 
                             <option value="1">Aktif</option>
                             <option value="0">Nonaktif</option>
@@ -114,21 +113,21 @@
             <div class="mt-6 rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
 
                 <div class="border-b border-gray-200 px-6 py-4 dark:border-gray-800">
-                    <h3 class="font-semibold text-gray-800 dark:text-white">
+                    <h3 class="font-semibold text-gray-800 dark:text-white dark:text-white">
                         Upload Foto
                     </h3>
                 </div>
 
                 <div class="p-6">
 
-                    <label class="mb-2 block font-medium">
+                    <label class="mb-2 block font-medium dark:text-white">
                         Pilih Foto
                     </label>
 
                     <input
                         type="file"
                         name="foto"
-                        class="block w-full rounded-lg border border-gray-300 text-sm file:mr-4 file:border-0 file:bg-brand-500 file:px-4 file:py-3 file:text-white hover:file:bg-brand-600">
+                        class="block w-full rounded-lg border border-gray-300 text-sm file:mr-4 file:border-0 file:bg-brand-500 file:px-4 file:py-3 file:text-white hover:file:bg-brand-600 dark:text-white">
 
                 </div>
 
@@ -147,7 +146,7 @@
 
                 <a
                     href="<?= site_url('pelanggan') ?>"
-                    class="rounded-lg border border-gray-300 px-6 py-3">
+                    class="rounded-lg border border-gray-300 px-6 py-3 dark:text-white">
 
                     Kembali
 

@@ -1,5 +1,5 @@
 <main>
-    <div class="p-4 mx-auto max-w-(--breakpoint-2xl) md:p-6">
+    <div class="p-6 bg-gray-50 dark:bg-gray-900 min-h-screen">
 
         <!-- Header -->
         <div class="flex items-center justify-between mb-6">
@@ -24,7 +24,7 @@
         </div>
 
         <!-- Table -->
-        <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
+        <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-theme-sm dark:border-gray-800 dark:bg-white/[0.03]">
 
             <div class="overflow-x-auto">
 
@@ -32,7 +32,7 @@
 
                     <thead>
 
-                        <tr class="border-b border-gray-200 dark:border-gray-800">
+                        <tr class="border-b border-gray-200 dark:text-white">
 
                             <th class="px-5 py-4 text-left">
                                 Kode
@@ -66,7 +66,7 @@
 
                         <?php foreach($pelanggan as $row): ?>
 
-                        <tr class="border-b border-gray-100 dark:border-gray-800">
+                        <tr class="border-b border-gray-100 dark:text-white">
 
                             <td class="px-5 py-4">
                                 <?= $row->kode_pelanggan ?>

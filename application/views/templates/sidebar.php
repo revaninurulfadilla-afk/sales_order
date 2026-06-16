@@ -121,8 +121,8 @@ $menu = $this->uri->segment(1);
 
                     <li>
 
-                        <a href="#"
-                           class="menu-item menu-item-inactive">
+                        <a href="<?= site_url('sales_order') ?>"
+                           class="menu-item <?= ($menu == 'sales_order') ? 'menu-item-active' : 'menu-item-inactive' ?>">
 
                             <span class="menu-item-text">
                                 Sales Order

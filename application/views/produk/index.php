@@ -1,5 +1,5 @@
 <main>
-    <div class="p-4 mx-auto max-w-(--breakpoint-2xl) md:p-6">
+    <div class="p-6 bg-gray-50 dark:bg-gray-900 min-h-screen">
 
         <!-- Header -->
         <div class="flex items-center justify-between mb-6">
@@ -24,24 +24,24 @@
         </div>
 
         <!-- TABLE -->
-        <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
+        <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-theme-sm dark:border-gray-800 dark:bg-white/[0.03]">
 
             <!-- Search -->
             <div class="flex items-center justify-between p-5 border-b border-gray-200 dark:border-gray-800">
 
                 <div class="flex items-center gap-3">
 
-                    <span class="text-sm text-gray-500">
+                    <span class="text-sm dark:text-white">
                         Show
                     </span>
 
-                    <select class="rounded-lg border border-gray-300 px-3 py-2 text-sm">
+                    <select class="rounded-lg border border-gray-300 px-3 py-2 text-sm dark:text-white">
                         <option>10</option>
                         <option>25</option>
                         <option>50</option>
                     </select>
 
-                    <span class="text-sm text-gray-500">
+                    <span class="text-sm dark:text-white">
                         entries
                     </span>
 
@@ -67,31 +67,31 @@
 
                         <tr class="border-b border-gray-200 dark:border-gray-800">
 
-                            <th class="px-5 py-4 text-left text-sm font-medium text-gray-500">
+                            <th class="px-5 py-4 text-left text-sm font-medium dark:text-white">
                                 Kode Produk
                             </th>
 
-                            <th class="px-5 py-4 text-left text-sm font-medium text-gray-500">
+                            <th class="px-5 py-4 text-left text-sm font-medium dark:text-white">
                                 Nama Produk
                             </th>
 
-                            <th class="px-5 py-4 text-left text-sm font-medium text-gray-500">
+                            <th class="px-5 py-4 text-left text-sm font-medium dark:text-white">
                                 Harga
                             </th>
 
-                            <th class="px-5 py-4 text-left text-sm font-medium text-gray-500">
+                            <th class="px-5 py-4 text-left text-sm font-medium dark:text-white">
                                 Stok
                             </th>
 
-                            <th class="px-5 py-4 text-left text-sm font-medium text-gray-500">
+                            <th class="px-5 py-4 text-left text-sm font-medium dark:text-white">
                                 Satuan
                             </th>
 
-                            <th class="px-5 py-4 text-center text-sm font-medium text-gray-500">
+                            <th class="px-5 py-4 text-center text-sm font-medium dark:text-white">
                                 Status
                             </th>
 
-                            <th class="px-5 py-4 text-center text-sm font-medium text-gray-500">
+                            <th class="px-5 py-4 text-center text-sm font-medium dark:text-white">
                                 Action
                             </th>
 
@@ -107,7 +107,7 @@
 
                         <tr class="border-b border-gray-100 dark:border-gray-800">
 
-                            <td class="px-5 py-4 text-gray-700 dark:text-gray-300">
+                            <td class="px-5 py-4 text-gray-700 dark:text-white">
                                 <?= $row->kode_produk ?>
                             </td>
 
@@ -115,29 +115,29 @@
                                 <?= $row->nama_produk ?>
                             </td>
 
-                            <td class="px-5 py-4 text-gray-700 dark:text-gray-300">
+                            <td class="px-5 py-4 text-gray-700 dark:text-white">
                                 Rp <?= number_format($row->harga,0,',','.') ?>
                             </td>
 
-                            <td class="px-5 py-4 text-gray-700 dark:text-gray-300">
+                            <td class="px-5 py-4 text-gray-700 dark:text-white">
                                 <?= $row->stok ?>
                             </td>
 
-                            <td class="px-5 py-4 text-gray-700 dark:text-gray-300">
+                            <td class="px-5 py-4 text-gray-700 dark:text-white">
                                 <?= $row->satuan ?>
                             </td>
 
-                            <td class="px-5 py-4 text-center">
+                            <td class="px-5 py-4 text-center ">
 
                                 <?php if($row->status == 1): ?>
 
-                                    <span class="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">
+                                    <span class="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700 dark:text-white">
                                         Aktif
                                     </span>
 
                                 <?php else: ?>
 
-                                    <span class="rounded-full bg-red-100 px-3 py-1 text-xs font-medium text-red-700">
+                                    <span class="rounded-full bg-red-100 px-3 py-1 text-xs font-medium text-red-700 dark:text-white">
                                         Nonaktif
                                     </span>
 

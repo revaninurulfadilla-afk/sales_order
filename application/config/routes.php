@@ -114,5 +114,5 @@ $route['users/update/(:num)'] = 'users/update/$1';
 $route['users/hapus/(:num)']  = 'users/hapus/$1';
 
 // Profile
-$route['profile']             = 'users/profile';
+$route['profile']             = 'profile';
 $route['profile/update']      = 'users/update_profile';

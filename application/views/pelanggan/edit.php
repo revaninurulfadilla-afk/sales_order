@@ -1,5 +1,5 @@
 <main>
-    <div class="p-4 mx-auto max-w-4xl md:p-6">
+        <div class="p-6 bg-gray-50 dark:bg-gray-900 min-h-screen">
 
         <div class="mb-6">
             <h2 class="text-3xl font-bold text-gray-800 dark:text-white">
@@ -13,9 +13,7 @@
 
         <form action="" method="post">
 
-            <div class="rounded-2xl border border-gray-200 bg-white p-6">
-
-                <div class="grid gap-5">
+                <div class="grid gap-5 dark:text-white">
 
                     <div>
                         <label class="mb-2 block font-medium">
