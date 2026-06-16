@@ -86,8 +86,8 @@ $menu = $this->uri->segment(1);
 
                     <li>
 
-                        <a href="#"
-                           class="menu-item menu-item-inactive">
+                        <a href="<?= site_url('pelanggan') ?>"
+                           class="menu-item <?= ($menu == 'pelanggan') ? 'menu-item-active' : 'menu-item-inactive' ?>">
 
                             <span class="menu-item-text">
                                 Pelanggan
@@ -98,9 +98,8 @@ $menu = $this->uri->segment(1);
                     </li>
 
                     <li>
-                    <a href="#"
-                    class="menu-item menu-item-inactive">
-
+                    <a href="<?= site_url('sales') ?>"
+                           class="menu-item <?= ($menu == 'sales') ? 'menu-item-active' : 'menu-item-inactive' ?>">
                         <span class="menu-item-text">
                             Sales
                         </span>
