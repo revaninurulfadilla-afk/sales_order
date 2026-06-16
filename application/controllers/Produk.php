@@ -32,16 +32,33 @@ class Produk extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function tambah()
-    {
-        $data['title'] = 'Tambah Produk';
+   public function tambah()
+{
+    $data['title'] = 'Tambah Produk';
 
-        $this->load->view('templates/header',$data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar');
-        $this->load->view('produk/tambah');
-        $this->load->view('templates/footer');
+    if ($this->input->post()) {
+
+        $insert = [
+            'kode_produk' => $this->input->post('kode_produk'),
+            'nama_produk' => $this->input->post('nama_produk'),
+            'harga'       => $this->input->post('harga'),
+            'stok'        => $this->input->post('stok'),
+            'satuan'      => $this->input->post('satuan'),
+            'deskripsi'   => $this->input->post('deskripsi'),
+            'status'      => $this->input->post('status')
+        ];
+
+        $this->db->insert('produk', $insert);
+
+        redirect('produk');
     }
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('templates/topbar');
+    $this->load->view('produk/tambah');
+    $this->load->view('templates/footer');
+}
 
     public function simpan()
     {
@@ -64,12 +81,33 @@ class Produk extends CI_Controller
     public function edit($id)
     {
         $data['title'] = 'Edit Produk';
-        $data['produk'] = $this->Produk_model->get_by_id($id);
 
-        $this->load->view('templates/header',$data);
+        $data['produk'] = $this->db
+            ->get_where('produk', ['id' => $id])
+            ->row();
+
+        if ($this->input->post()) {
+
+            $update = [
+                'kode_produk' => $this->input->post('kode_produk'),
+                'nama_produk' => $this->input->post('nama_produk'),
+                'harga'       => $this->input->post('harga'),
+                'stok'        => $this->input->post('stok'),
+                'satuan'      => $this->input->post('satuan'),
+                'deskripsi'   => $this->input->post('deskripsi'),
+                'status'      => $this->input->post('status')
+            ];
+
+            $this->db->where('id', $id);
+            $this->db->update('produk', $update);
+
+            redirect('produk');
+        }
+
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
-        $this->load->view('produk/edit',$data);
+        $this->load->view('produk/edit', $data);
         $this->load->view('templates/footer');
     }
 
