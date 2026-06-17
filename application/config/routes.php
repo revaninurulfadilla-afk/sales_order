@@ -97,13 +97,12 @@ $route['sales_order/ubah_status/(:num)'] = 'sales_order/ubah_status/$1';
 $route['sales_order/get_produk/(:num)']  = 'sales_order/get_produk/$1';
 
 // Laporan
-$route['laporan']             = 'laporan/index';
-$route['laporan/penjualan']   = 'laporan/penjualan';
-$route['laporan/sales']       = 'laporan/per_sales';
-$route['laporan/produk']      = 'laporan/per_produk';
-$route['laporan/export_pdf']  = 'laporan/export_pdf';
-$route['laporan/export_sales_pdf']   = 'laporan/export_sales_pdf';
-$route['laporan/export_produk_pdf']  = 'laporan/export_produk_pdf';
+$route['laporan/penjualan'] = 'laporan/penjualan';
+$route['laporan/produk']    = 'laporan/produk';
+$route['laporan/sales']     = 'laporan/sales';
+$route['laporan/cetak_penjualan'] = 'laporan/cetak_penjualan';
+$route['laporan/cetak_produk']    = 'laporan/cetak_produk';
+$route['laporan/cetak_sales']    = 'laporan/cetak_sales';
 
 // Users
 $route['users']               = 'users/index';

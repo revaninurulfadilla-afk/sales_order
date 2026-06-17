@@ -181,8 +181,8 @@ $menu = $this->uri->segment(1);
 
                     <li>
 
-                        <a href="#"
-                           class="menu-item menu-item-inactive">
+                        <a href="<?= site_url('laporan/penjualan') ?>"
+                           class="menu-item <?= ($menu == 'laporan/penjualan') ? 'menu-item-active' : 'menu-item-inactive' ?>">
 
                             <span class="menu-item-text">
                                 Laporan Penjualan
@@ -194,8 +194,8 @@ $menu = $this->uri->segment(1);
 
                     <li>
 
-                        <a href="#"
-                           class="menu-item menu-item-inactive">
+                        <a href="<?= site_url('laporan/produk') ?>"
+                           class="menu-item <?= ($menu == 'laporan/produk') ? 'menu-item-active' : 'menu-item-inactive' ?>">
 
                             <span class="menu-item-text">
                                 Laporan Produk
@@ -207,8 +207,8 @@ $menu = $this->uri->segment(1);
 
                     <li>
 
-                        <a href="#"
-                           class="menu-item menu-item-inactive">
+                        <a href="<?= site_url('laporan/sales') ?>"
+                           class="menu-item <?= ($menu == 'laporan/sales') ? 'menu-item-active' : 'menu-item-inactive' ?>">
 
                             <span class="menu-item-text">
                                 Laporan Sales
