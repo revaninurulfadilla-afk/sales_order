@@ -65,7 +65,9 @@
                 </h5>
 
             </div>
+            
             <div class="mt-4">
+            <?php if($this->session->userdata('role') == 'admin'): ?>
 
             <label class="block mb-2 font-medium dark:text-white">
                 Status Order
@@ -96,12 +98,70 @@
                 </option>
 
             </select>
+            <?php endif; ?>
 
         </div>
 
         </div>
 
     </div>
+
+    <?php if($this->session->userdata('role') != 'manager'): ?>
+
+    <div class="mb-6 rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
+
+        <form action="<?= site_url('sales_order/tambah_item/'.$order->id) ?>" method="post">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                <div>
+                    <label class="block mb-2 dark:text-white">
+                        Produk
+                    </label>
+
+                    <select
+                        name="produk_id"
+                        class="w-full rounded-lg border px-4 py-3 dark:bg-gray-800 dark:text-white">
+
+                        <?php foreach($produk as $p): ?>
+                        <option value="<?= $p->id ?>">
+                            <?= $p->nama_produk ?>
+                        </option>
+                        <?php endforeach; ?>
+
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block mb-2 dark:text-white">
+                        Qty
+                    </label>
+
+                    <input
+                        type="number"
+                        name="qty"
+                        min="1"
+                        value="1"
+                        class="w-full rounded-lg border px-4 py-3 dark:bg-gray-800 dark:text-white">
+                </div>
+
+                <div class="flex items-end">
+                    <button
+                        type="submit"
+                        class="rounded-lg bg-brand-500 px-5 py-3 text-white">
+
+                        Tambah Produk
+
+                    </button>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <?php endif; ?>
 
     <!-- Detail Produk -->
     <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
@@ -191,6 +251,12 @@
 
         </table>
 
+    </div>
+    <div class="mt-6 flex gap-3">
+        <a href="<?= site_url('sales_order') ?>"
+            class="rounded-lg border border-gray-300 px-5 py-3 dark:border-gray-700 dark:text-white">
+                Kembali
+        </a>
     </div>
 
 </div>

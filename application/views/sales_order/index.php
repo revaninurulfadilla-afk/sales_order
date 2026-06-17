@@ -134,10 +134,11 @@
                                         👁️
                                     </a>
 
-                                    <a href="<?= site_url('sales_order/hapus/'.$row->id) ?>"
-                                       onclick="return confirm('Hapus data?')">
+                                    <?php if($this->session->userdata('role') == 'admin'): ?>
+                                    <a href="<?= site_url('sales_order/hapus/'.$row->id) ?>">
                                         🗑️
                                     </a>
+                                    <?php endif; ?>
 
                                 </div>
 

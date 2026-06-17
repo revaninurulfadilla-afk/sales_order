@@ -45,6 +45,11 @@ class Sales_order extends MY_Controller
 
         $data['detail'] = $this->Sales_order_model
             ->get_detail_order($id);
+        
+        $data['produk'] = $this->db
+            ->where('status',1)
+            ->get('produk')
+            ->result();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
@@ -68,12 +73,16 @@ class Sales_order extends MY_Controller
             'no_order'      => $this->input->post('no_order'),
             'tanggal_order' => $this->input->post('tanggal_order'),
             'pelanggan_id'  => $this->input->post('pelanggan_id'),
-            'sales_id'      => $this->input->post('sales_id'),
+
+            'sales_id' => ($this->session->userdata('role') == 'sales')
+                ? $this->db->get_where(
+                    'sales',
+                    ['user_id' => $this->session->userdata('user_id')]
+                )->row()->id
+                : $this->input->post('sales_id'),
 
             'total_harga'   => 0,
-
             'status'        => 'draft',
-
             'created_by'    => $this->session->userdata('user_id')
 
         ];
@@ -89,6 +98,46 @@ class Sales_order extends MY_Controller
     $this->load->view('sales_order/tambah',$data);
     $this->load->view('templates/footer');
 }
+
+public function tambah_item($order_id)
+{
+    $produk = $this->db
+        ->get_where('produk', [
+            'id' => $this->input->post('produk_id')
+        ])
+        ->row();
+
+    $qty = $this->input->post('qty');
+
+    $subtotal = $produk->harga * $qty;
+
+    $this->db->insert('sales_order_detail', [
+
+        'order_id'     => $order_id,
+        'produk_id'    => $produk->id,
+        'qty'          => $qty,
+        'harga_satuan' => $produk->harga,
+        'subtotal'     => $subtotal
+
+    ]);
+
+    $this->db
+        ->select_sum('subtotal')
+        ->where('order_id', $order_id);
+
+    $total = $this->db
+        ->get('sales_order_detail')
+        ->row()
+        ->subtotal;
+
+    $this->db->where('id', $order_id);
+    $this->db->update('sales_order', [
+        'total_harga' => $total
+    ]);
+
+    redirect('sales_order/detail/'.$order_id);
+}
+
 public function status($id,$status)
 {
     $this->db->where('id',$id);

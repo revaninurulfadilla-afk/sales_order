@@ -67,17 +67,23 @@
                             Sales
                         </label>
 
-                        <select
-                            name="sales_id"
-                            class="w-full rounded-lg border border-gray-300 px-4 py-3 dark:border-gray-700 dark:bg-gray-800 dark:text-white">
+                        <?php if($this->session->userdata('role') == 'sales'): ?>
+                            <input
+                                type="text"
+                                value="<?= $this->session->userdata('nama') ?>"
+                                readonly class="w-full rounded-lg border border-gray-300 bg-gray-100 px-4 py-3 dark:border-gray-700 dark:bg-gray-800 dark:text-white">
+                            <?php endif; ?>
 
-                            <?php foreach($sales as $s): ?>
-                                <option value="<?= $s->id ?>">
-                                    <?= $s->nama_sales ?>
-                                </option>
-                            <?php endforeach; ?>
-
-                        </select>
+                            <?php if($this->session->userdata('role') == 'admin'): ?>
+                            <select name="sales_id" class="w-full rounded-lg border border-gray-300 px-4 py-3 dark:border-gray-700 dark:bg-gray-800 dark:text-white">
+                                <?php foreach($sales as $s): ?>
+                                    <option value="<?= $s->id ?>">
+                                        <?= $s->nama_sales ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                            <?php endif; ?>
+                        
                     </div>
 
                 </div>
