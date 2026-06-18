@@ -68,11 +68,7 @@
                         <tr class="border-b border-gray-200 dark:border-gray-800">
 
                             <th class="px-5 py-4 text-left text-sm font-medium dark:text-white">
-                                Kode Produk
-                            </th>
-
-                            <th class="px-5 py-4 text-left text-sm font-medium dark:text-white">
-                                Nama Produk
+                                Produk
                             </th>
 
                             <th class="px-5 py-4 text-left text-sm font-medium dark:text-white">
@@ -107,13 +103,29 @@
 
                         <tr class="border-b border-gray-100 dark:border-gray-800">
 
-                            <td class="px-5 py-4 text-gray-700 dark:text-white">
-                                <?= $row->kode_produk ?>
-                            </td>
+                            <td class="px-5 py-4">
 
-                            <td class="px-5 py-4 font-medium text-gray-800 dark:text-white">
-                                <?= $row->nama_produk ?>
-                            </td>
+                            <div class="flex items-center gap-4">
+
+                                <img
+                                    src="http://localhost/sales_order/assets/src/images/product/<?= $row->foto_produk ?>"
+                                    class="h-14 w-14 rounded-xl object-cover border border-gray-200 dark:border-gray-700">
+
+                                <div>
+
+                                    <p class="font-semibold text-gray-800 dark:text-white">
+                                        <?= $row->nama_produk ?>
+                                    </p>
+
+                                    <p class="text-sm text-gray-500">
+                                        <?= $row->kode_produk ?>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </td>
 
                             <td class="px-5 py-4 text-gray-700 dark:text-white">
                                 Rp <?= number_format($row->harga,0,',','.') ?>

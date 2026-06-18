@@ -31,6 +31,18 @@
 
                     <div>
                         <label class="mb-2 block text-gray-700 dark:text-white">
+                            Username
+                        </label>
+
+                        <input
+                            type="text"
+                            name="username"
+                            required
+                            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-800 dark:border-gray-700 dark:bg-gray-900 dark:text-white">
+                    </div>
+
+                    <div>
+                        <label class="mb-2 block text-gray-700 dark:text-white">
                             Nama Sales
                         </label>
 

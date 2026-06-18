@@ -1,224 +1,281 @@
-
 <main>
     <div class="p-6 bg-gray-50 dark:bg-gray-900 min-h-screen">
 
-        <div class="mb-6">
-            <h2 class="text-title-md2 font-bold text-dark dark:text-white">
-                Dashboard
-            </h2>
-
-            <p class="text-sm text-gray-500">
-                Selamat datang, <?= $this->session->userdata('nama'); ?>
-            </p>
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-6">
+            <div>
+                <h2 class="text-title-md2 font-bold text-dark dark:text-white">Dashboard</h2>
+                <p class="text-sm text-gray-500">
+                    Selamat datang, <?= $this->session->userdata('nama'); ?>
+                </p>
+            </div>
         </div>
 
-        <div class="grid grid-cols-12 gap-4 md:gap-6">
+        <!-- Row 1: Cards + Grafik -->
+        <div style="display:flex; gap:20px; align-items:flex-start;">
 
-            <!-- Metric Group -->
-            <div class="col-span-12 space-y-6">
-
-                <!-- Cards -->
-                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4 md:gap-6">
-
-                    <!-- Produk -->
-                    <div class="rounded-2xl border border-gray-200 bg-white p-5 shadow-theme-sm dark:border-gray-800 dark:bg-white/[0.03]">
-
-                        <div class="flex items-center justify-between">
-
-                            <div>
-                                <span class="text-sm text-gray-500">
-                                    Total Produk
-                                </span>
-
-                                <h4 class="mt-2 text-2xl font-bold text-gray-800 dark:text-white">
-                                    <?= $total_produk ?>
-                                </h4>
-                            </div>
-
-                            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50">
-                                📦
-                            </div>
-
+            <!--Cards -->
+           <div style="width:35%;">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+           
+                    <!-- Total Produk -->
+                    <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-theme-sm dark:border-gray-800 dark:bg-white/[0.03]">
+                        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800">
+                            <svg class="h-6 w-6 text-gray-700 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7L12 3L4 7L12 11L20 7ZM4 7V17L12 21M20 7V17L12 21"></path>
+                            </svg>
                         </div>
-
+                        <p class="mt-6 text-sm text-gray-500">Total Produk</p>
+                        <div class="mt-3 flex items-end justify-between">
+                            <h3 class="mt-2 text-4xl font-bold text-gray-950 dark:text-white">
+                                <?= number_format($total_produk) ?>
+                            </h3>
+                            <span class="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-sm font-medium dark:text-white">Aktif</span>
+                        </div>
                     </div>
 
-                    <!-- Pelanggan -->
-                    <div class="rounded-2xl border border-gray-200 bg-white p-5 shadow-theme-sm dark:border-gray-800 dark:bg-white/[0.03]">
-
-                        <div class="flex items-center justify-between">
-
-                            <div>
-                                <span class="text-sm text-gray-500">
-                                    Total Pelanggan
-                                </span>
-
-                                <h4 class="mt-2 text-2xl font-bold text-gray-800 dark:text-white">
-                                    <?= $total_pelanggan ?>
-                                </h4>
-                            </div>
-
-                            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50">
-                                👥
-                            </div>
-
+                    <!-- Total Pelanggan -->
+                    <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-theme-sm dark:border-gray-800 dark:bg-white/[0.03]">
+                        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800">
+                            <svg class="h-6 w-6 text-gray-700 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 21V19C17 17.9 16.1 17 15 17H5C3.9 17 3 17.9 3 19V21"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                            </svg>
                         </div>
-
+                        <p class="mt-6 text-sm text-gray-500">Total Pelanggan</p>
+                        <div class="mt-3 flex items-end justify-between">
+                            <h3 class="text-4xl font-bold text-gray-900 dark:text-white">
+                                <?= number_format($total_pelanggan) ?>
+                            </h3>
+                            <span class="rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-600">Aktif</span>
+                        </div>
                     </div>
 
-                    <!-- Sales -->
-                    <div class="rounded-2xl border border-gray-200 bg-white p-5 shadow-theme-sm dark:border-gray-800 dark:bg-white/[0.03]">
-
-                        <div class="flex items-center justify-between">
-
-                            <div>
-                                <span class="text-sm text-gray-500">
-                                    Total Sales
-                                </span>
-
-                                <h4 class="mt-2 text-2xl font-bold text-gray-800 dark:text-white">
-                                    <?= $total_sales ?>
-                                </h4>
-                            </div>
-
-                            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-yellow-50">
-                                👨‍💼
-                            </div>
-
+                    <!-- Total Sales -->
+                    <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-theme-sm dark:border-gray-800 dark:bg-white/[0.03]">
+                        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800">
+                            <svg class="h-6 w-6 text-gray-700 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <circle cx="12" cy="7" r="4"></circle>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 22C4 17.5 7.5 14 12 14C16.5 14 20 17.5 20 22"></path>
+                            </svg>
                         </div>
-
+                        <p class="mt-6 text-sm text-gray-500">Total Sales</p>
+                        <div class="mt-3 flex items-end justify-between">
+                            <h3 class="text-4xl font-bold text-gray-900 dark:text-white">
+                                <?= number_format($total_sales) ?>
+                            </h3>
+                            <span class="rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-600">Aktif</span>
+                        </div>
                     </div>
 
-                    <!-- Order -->
-                    <div class="rounded-2xl border border-gray-200 bg-white p-5 shadow-theme-sm dark:border-gray-800 dark:bg-white/[0.03]">
-
-                        <div class="flex items-center justify-between">
-
-                            <div>
-                                <span class="text-sm text-gray-500">
-                                    Total Sales Order
-                                </span>
-
-                                <h4 class="mt-2 text-2xl font-bold text-gray-800 dark:text-white">
-                                    <?= $total_order ?>
-                                </h4>
-                            </div>
-
-                            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50">
-                                🛒
-                            </div>
-
+                    <!-- Total Sales Order -->
+                    <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-theme-sm dark:border-gray-800 dark:bg-white/[0.03]">
+                        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800">
+                            <svg class="h-6 w-6 text-gray-700 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <circle cx="9" cy="20" r="1"></circle>
+                                <circle cx="18" cy="20" r="1"></circle>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1H5L7.5 13H18L21 5H6"></path>
+                            </svg>
                         </div>
-
+                        <p class="mt-6 text-sm text-gray-500">Total Sales Order</p>
+                        <div class="mt-3 flex items-end justify-between">
+                            <h3 class="text-4xl font-bold text-gray-900 dark:text-white">
+                                <?= number_format($total_order) ?>
+                            </h3>
+                            <span class="rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-600">Order</span>
+                        </div>
                     </div>
 
                 </div>
+            </div>
+
+            <!--Grafik Sales Order -->
+             <div style="width:65%;">
+
+                <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-theme-sm dark:border-gray-800 dark:bg-white/[0.03]">
+
+                    <!-- Header -->
+                    <div class="mb-5">
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Grafik Sales Order</h3>
+                        <p class="mt-1 text-sm text-gray-500">
+                            <?= date('d M Y', strtotime($tanggal_awal)) ?>
+                            -
+                            <?= date('d M Y', strtotime($tanggal_akhir)) ?>
+                        </p>
+                    </div>
+
+                    <!-- Filter -->
+                    <form method="get" id="filterForm" class="dark:text-white">
+                        <input type="text" id="rangeTanggal" class="rounded-lg border px-4 py-2" placeholder="Pilih tanggal">
+                        <input type="hidden" name="tanggal_awal" id="tanggal_awal" value="<?= $tanggal_awal ?>">
+                        <input type="hidden" name="tanggal_akhir" id="tanggal_akhir" value="<?= $tanggal_akhir ?>">
+                        <button type="submit" class="rounded-lg bg-brand-500 px-4 py-2 dark:text-white">Filter</button>
+                    </form>
+
+                    <!-- Grafik -->
+                    <div id="chartOrder" style="height:300px;"></div>
+                </div>
+            </div>
+
+        </div><br>
+
+        <!-- Row 2: Tabel Sales Order Terbaru -->
+        <div class="grid grid-cols-12 gap-5">
+    <div class="col-span-12">
+
+        <div class="overflow-hidden rounded-2xl border border-gray-200">
+
+            <!-- Header -->
+            <div class="flex items-center justify-between px-6 py-5">
+
+                <h3 class="text-lg font-semibold dark:text-white">
+                    Sales Order Terbaru
+                </h3>
+
+                <a href="<?= base_url('sales_order') ?>"
+                   class="rounded-lg border px-4 py-2 text-sm font-medium dark:text-white">
+                    Lihat Semua
+                </a>
 
             </div>
 
             <!-- Table -->
-            <div class="col-span-12">
+            <div class="overflow-x-auto dark:text-white">
 
-                <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-theme-sm dark:border-gray-800 dark:bg-white/[0.03]">
+                <table class="min-w-full">
 
-                    <div class="px-6 py-4 text-gray-700 dark:text-gray-300">
+                    <thead>
+                        <tr class="border-t border-b border-gray-200">
 
-                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
-                            Sales Order Terbaru
-                        </h3>
+                            <th class="px-6 py-4 text-left text-sm font-medium dark:text-white">
+                                Produk
+                            </th>
 
-                    </div>
+                            <th class="px-6 py-4 text-left text-sm font-medium dark:text-white">
+                                Pelanggan
+                            </th>
 
-                    <div class="overflow-x-auto">
+                            <th class="px-6 py-4 text-left text-sm font-medium dark:text-white">
+                                Sales
+                            </th>
 
-                        <table class="min-w-full">
+                            <th class="px-6 py-4 text-left text-sm font-medium dark:text-white">
+                                Total
+                            </th>
 
-                            <thead>
+                            <th class="px-6 py-4 text-left text-sm font-medium dark:text-white">
+                                Status
+                            </th>
 
-                                <tr class="border-b border-gray-200">
+                        </tr>
+                    </thead>
 
-                                    <th class="px-6 py-4 text-left text-gray-700 dark:text-white">
-                                        No Order
-                                    </th>
+                    <tbody>
 
-                                    <th class="px-6 py-4 text-left text-gray-700 dark:text-white">
-                                        Pelanggan
-                                    </th>
+                        <?php foreach($order_terbaru as $row): ?>
 
-                                    <th class="px-6 py-4 text-left text-gray-700 dark:text-white">
-                                        Sales
-                                    </th>
+                        <tr class="border-b border-gray-100 hover:bg-slate-900">
 
-                                    <th class="px-6 py-4 text-left text-gray-700 dark:text-white">
-                                        Total
-                                    </th>
+                            <!-- FOTO + NAMA PRODUK -->
+                            <td class="px-6 py-4">
 
-                                    <th class="px-6 py-4 text-left text-gray-700 dark:text-white">
-                                        Status
-                                    </th>
+                                <div class="flex items-center gap-3">
+                                    
 
-                                </tr>
+                                    <img
+    src="http://localhost/sales_order/assets/src/images/product/<?= $row->foto_produk ?>"
+    class="h-12 w-12 rounded-lg object-cover border">
 
-                            </thead>
+                                    <div>
 
-                            <tbody>
+                                        <p class="font-medium dark:text-white">
+                                            <?= $row->nama_produk ?>
+                                        </p>
 
-                            <?php if(!empty($order_terbaru)): ?>
+                                        <p class="text-sm dark:text-white">
+                                            <?= $row->no_order ?>
+                                        </p>
 
-                                <?php foreach($order_terbaru as $row): ?>
+                                    </div>
 
-                                <tr class="border-b border-gray-100">
+                                </div>
 
-                                    <td class="px-6 py-4">
-                                        <?= $row->no_order ?>
-                                    </td>
+                            </td>
 
-                                    <td class="px-6 py-4">
-                                        <?= $row->nama_pelanggan ?>
-                                    </td>
+                            <td class="px-6 py-4">
+                                <?= $row->nama_pelanggan ?>
+                            </td>
 
-                                    <td class="px-6 py-4">
-                                        <?= $row->nama_sales ?>
-                                    </td>
+                            <td class="px-6 py-4">
+                                <?= $row->nama_sales ?>
+                            </td>
 
-                                    <td class="px-6 py-4">
-                                        Rp <?= number_format($row->grand_total,0,',','.') ?>
-                                    </td>
+                            <td class="px-6 py-4 font-medium">
+                                Rp <?= number_format($row->total_harga,0,',','.') ?>
+                            </td>
 
-                                    <td class="px-6 py-4">
-                                        <?= $row->status ?>
-                                    </td>
+                            <td class="px-6 py-4">
 
-                                </tr>
+                                <?php if($row->status == 'Selesai'): ?>
 
-                                <?php endforeach; ?>
+                                    <span class="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-600">
+                                        Selesai
+                                    </span>
 
-                            <?php else: ?>
+                                <?php elseif($row->status == 'Pending'): ?>
 
-                                <tr>
+                                    <span class="rounded-full bg-yellow-100 px-3 py-1 text-xs font-medium text-yellow-600">
+                                        Pending
+                                    </span>
 
-                                    <td colspan="5"
-                                        class="px-6 py-6 text-center text-gray-700 dark:text-white">
+                                <?php else: ?>
 
-                                        Belum ada data
+                                    <span class="rounded-full bg-red-100 px-3 py-1 text-xs font-medium text-red-600">
+                                        Batal
+                                    </span>
 
-                                    </td>
+                                <?php endif; ?>
 
-                                </tr>
+                            </td>
 
-                            <?php endif; ?>
+                        </tr>
 
-                            </tbody>
+                        <?php endforeach; ?>
 
-                        </table>
+                    </tbody>
 
-                    </div>
-
-                </div>
+                </table>
 
             </div>
 
         </div>
 
     </div>
+</div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        var options = {
+            series: [{ name: 'Total Order', data: <?= json_encode($chart_data) ?> }],
+            chart: { type: 'bar', height: 300 },
+            xaxis: { categories: <?= json_encode($chart_label) ?> }
+        };
+        var chart = new ApexCharts(document.querySelector("#chartOrder"), options);
+        chart.render();
+    </script>
+    <script>
+        flatpickr("#rangeTanggal", {
+            mode: "range",
+            dateFormat: "Y-m-d",
+            defaultDate: ["<?= $tanggal_awal ?>", "<?= $tanggal_akhir ?>"],
+            onChange: function(selectedDates) {
+                if (selectedDates.length == 2) {
+                    document.getElementById('tanggal_awal').value = flatpickr.formatDate(selectedDates[0], "Y-m-d");
+                    document.getElementById('tanggal_akhir').value = flatpickr.formatDate(selectedDates[1], "Y-m-d");
+                }
+            }
+        });
+    </script>
+
 </main>

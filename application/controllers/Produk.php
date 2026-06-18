@@ -61,22 +61,44 @@ class Produk extends CI_Controller
 }
 
     public function simpan()
+{
+    $foto_produk = '';
+
+    if (!empty($_FILES['foto_produk']['name']))
     {
-        $data = [
-            'kode_produk' => $this->input->post('kode_produk'),
-            'nama_produk' => $this->input->post('nama_produk'),
-            'harga'       => $this->input->post('harga'),
-            'stok'        => $this->input->post('stok'),
-            'satuan'      => $this->input->post('satuan'),
-            'deskripsi'   => $this->input->post('deskripsi'),
-            'status'      => $this->input->post('status'),
-            'created_at'  => date('Y-m-d H:i:s')
-        ];
+        $config['upload_path']   = './assets/src/images/product/';
+        $config['allowed_types'] = 'jpg|jpeg|png';
+        $config['file_name']     = time().'_'.$_FILES['foto_produk']['name'];
 
-        $this->Produk_model->insert($data);
+        $this->load->library('upload', $config);
 
-        redirect('produk');
+        if ($this->upload->do_upload('foto_produk'))
+        {
+            $upload_data = $this->upload->data();
+            $foto_produk = $upload_data['file_name'];
+        }
+        else
+        {
+            echo $this->upload->display_errors();
+            exit;
+        }
     }
+
+    $data = [
+        'kode_produk' => $this->input->post('kode_produk'),
+        'nama_produk' => $this->input->post('nama_produk'),
+        'harga'       => $this->input->post('harga'),
+        'stok'        => $this->input->post('stok'),
+        'satuan'      => $this->input->post('satuan'),
+        'deskripsi'   => $this->input->post('deskripsi'),
+        'foto_produk' => $foto_produk,
+        'status'      => 1
+    ];
+
+    $this->db->insert('produk', $data);
+
+    redirect('produk');
+}
 
     public function edit($id)
     {

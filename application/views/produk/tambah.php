@@ -10,8 +10,7 @@
             </p>
         </div>
 
-        <form action="" method="post">
-
+        <form method="post" enctype="multipart/form-data" action="<?= site_url('produk/simpan') ?>">
             <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
 
                 <div class="border-b border-gray-200 px-6 py-4 dark:border-gray-800 dark:text-white">
@@ -115,6 +114,45 @@
 
                         </select>
                     </div>
+
+                </div>
+
+            </div>
+            <!-- FOTO PRODUK -->
+            <div class="mt-6 rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
+
+                <div class="border-b border-gray-200 px-6 py-4 dark:border-gray-800">
+                    <h3 class="font-semibold text-gray-800 dark:text-white">
+                        Foto Produk
+                    </h3>
+                </div>
+
+                <div class="p-6">
+
+                    <label class="mb-2 block font-medium text-gray-700 dark:text-white">
+                        Pilih Foto Produk
+                    </label>
+
+                    <input
+                        type="file"
+                        name="foto_produk"
+                        accept="image/*"
+                        class="block w-full rounded-lg border border-gray-300 text-sm
+                            file:mr-4
+                            file:rounded-lg
+                            file:border-0
+                            file:bg-brand-500
+                            file:px-4
+                            file:py-2
+                            file:font-medium
+                            file:text-white
+                            hover:file:bg-brand-600
+                            dark:border-gray-700
+                            dark:text-white">
+
+                    <p class="mt-2 text-xs text-gray-500">
+                        Format: JPG, JPEG, PNG, WEBP. Maksimal 2MB.
+                    </p>
 
                 </div>
 

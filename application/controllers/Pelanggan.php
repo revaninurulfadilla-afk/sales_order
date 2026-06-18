@@ -35,13 +35,30 @@ class Pelanggan extends CI_Controller
 
         if ($this->input->post()) {
 
+            $foto = '';
+
+            if (!empty($_FILES['foto']['name']))
+            {
+                $config['upload_path'] = './assets/images/pelanggan/';
+                $config['allowed_types'] = 'jpg|jpeg|png|webp';
+                $config['encrypt_name']  = TRUE;
+
+                $this->load->library('upload', $config);
+
+                if ($this->upload->do_upload('foto'))
+                {
+                    $foto = $this->upload->data('file_name');
+                }
+            }
+
             $insert = [
                 'kode_pelanggan' => $this->input->post('kode_pelanggan'),
                 'nama_pelanggan' => $this->input->post('nama_pelanggan'),
                 'alamat'         => $this->input->post('alamat'),
                 'telepon'        => $this->input->post('telepon'),
                 'email'          => $this->input->post('email'),
-                'status'         => $this->input->post('status')
+                'status'         => $this->input->post('status'),
+                'foto'           => $foto
             ];
 
             $this->db->insert('pelanggan', $insert);

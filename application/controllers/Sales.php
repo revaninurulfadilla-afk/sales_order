@@ -27,18 +27,61 @@ class Sales extends MY_Controller
 
         if ($this->input->post()) {
 
-            $insert = [
-                'kode_sales' => $this->input->post('kode_sales'),
-                'nama_sales' => $this->input->post('nama_sales'),
-                'telepon'    => $this->input->post('telepon'),
-                'email'      => $this->input->post('email'),
-                'status'     => $this->input->post('status')
-            ];
+    $foto = '';
 
-            $this->db->insert('sales', $insert);
+    if (!empty($_FILES['foto']['name']))
+    {
+        $config['upload_path']   = './assets/images/sales/';
+        $config['allowed_types'] = 'jpg|jpeg|png|webp';
+        $config['encrypt_name']  = TRUE;
 
-            redirect('sales');
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('foto'))
+        {
+            $upload = $this->upload->data();
+            $foto = $upload['file_name'];
         }
+    }
+    $cek = $this->db
+        ->get_where('users', [
+            'username' => $this->input->post('username')
+        ])
+        ->row();
+
+    if($cek)
+    {
+        echo "Username sudah digunakan";
+        exit;
+    }
+
+    $user = [
+        'username' => $this->input->post('username'),
+        'password' => md5('123456'),
+        'nama'     => $this->input->post('nama_sales'),
+        'email'    => $this->input->post('email'),
+        'role'     => 'sales',
+        'status'   => $this->input->post('status'),
+        'foto'     => $foto
+    ];
+    $this->db->insert('users', $user);
+
+    $user_id = $this->db->insert_id();
+
+    $insert = [
+        'kode_sales' => $this->input->post('kode_sales'),
+        'nama_sales' => $this->input->post('nama_sales'),
+        'telepon'    => $this->input->post('telepon'),
+        'email'      => $this->input->post('email'),
+        'user_id'    => $user_id,
+        'status'     => $this->input->post('status'),
+        'foto'       => $foto
+    ];
+
+    $this->db->insert('sales', $insert);
+
+    redirect('sales');
+}
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
