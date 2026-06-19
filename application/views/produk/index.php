@@ -35,10 +35,13 @@
                         Show
                     </span>
 
-                    <select class="rounded-lg border border-gray-300 px-3 py-2 text-sm dark:text-white">
-                        <option>10</option>
-                        <option>25</option>
-                        <option>50</option>
+                    <select id="showEntries"
+                        class="rounded-lg border border-gray-300 px-3 py-2 text-sm dark:text-white">
+
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+
                     </select>
 
                     <span class="text-sm dark:text-white">
@@ -49,10 +52,18 @@
 
                 <div>
 
-                    <input
-                        type="text"
-                        placeholder="Search..."
-                        class="h-11 rounded-lg border border-gray-300 px-4 text-sm dark:border-gray-700 dark:bg-gray-900 dark:text-white">
+                    <form method="get">
+                        <input
+                            type="text"
+                            name="keyword"
+                            value="<?= $this->input->get('keyword') ?>"
+                            placeholder="Search..."
+                            class="h-11 rounded-lg border border-gray-300 px-4 text-sm dark:text-white">
+
+                        <button type="submit">
+                            Search
+                        </button>
+                    </form>
 
                 </div>
 
@@ -202,6 +213,30 @@
                     </tbody>
 
                 </table>
+
+                <script>
+                    const showEntries = document.getElementById('showEntries');
+                    const rows = document.querySelectorAll('tbody tr');
+
+                    function tampilkanData() {
+
+                        let jumlah = parseInt(showEntries.value);
+
+                        rows.forEach((row, index) => {
+
+                            if(index < jumlah) {
+                                row.style.display = '';
+                            } else {
+                                row.style.display = 'none';
+                            }
+
+                        });
+                    }
+
+                    showEntries.addEventListener('change', tampilkanData);
+
+                    tampilkanData();
+                    </script>
 
             </div>
 

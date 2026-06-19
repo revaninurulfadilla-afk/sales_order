@@ -10,23 +10,31 @@ $menu = $this->uri->segment(1);
     <!-- Logo -->
     <div
       :class="sidebarToggle ? 'justify-center' : 'justify-between'"
-      class="flex items-center gap-2 pt-8 pb-7">
+      class="flex items-center gap-2 pt-5 pb-6">
 
-        <a href="<?= site_url('dashboard') ?>">
 
-            <span class="logo" :class="sidebarToggle ? 'hidden' : ''">
-                <h2 class="text-2xl font-bold text-brand-500">
-                    Sales Order
-                </h2>
+            <a href="<?= site_url('dashboard') ?>"
+        class="logo flex justify-center"
+        :class="sidebarToggle ? 'hidden' : ''">
+
+                <img
+                    src="<?= base_url('assets/src/images/logo/logo2.png') ?>"
+                    alt="PT Maju Jaya"
+                    style="height:85px;">
+
             </span>
 
             <span
-              class="logo-icon text-xl font-bold"
-              :class="sidebarToggle ? 'lg:block' : 'hidden'">
-                SO
-            </span>
+                class="logo-icon"
+                :class="sidebarToggle ? 'lg:block' : 'hidden'">
 
-        </a>
+                <img
+                    src="<?= base_url('assets/src/images/logo/logo2.png') ?>"
+                    alt="Logo"
+                    class="h-5 w-5">
+
+            </span>
+                </a>
 
     </div>
 
@@ -47,6 +55,8 @@ $menu = $this->uri->segment(1);
 
                         <a href="<?= site_url('dashboard') ?>"
                            class="menu-item <?= ($menu == 'dashboard') ? 'menu-item-active' : 'menu-item-inactive' ?>">
+
+                           <i data-lucide="layout-dashboard" class="size-5"></i>
 
                             <span class="menu-item-text">
                                 Dashboard
@@ -76,6 +86,8 @@ $menu = $this->uri->segment(1);
                         <a href="<?= site_url('produk') ?>"
                            class="menu-item <?= ($menu == 'produk') ? 'menu-item-active' : 'menu-item-inactive' ?>">
 
+                           <i data-lucide="package" class="size-5"></i>
+
                             <span class="menu-item-text">
                                 Produk
                             </span>
@@ -89,6 +101,8 @@ $menu = $this->uri->segment(1);
                         <a href="<?= site_url('pelanggan') ?>"
                            class="menu-item <?= ($menu == 'pelanggan') ? 'menu-item-active' : 'menu-item-inactive' ?>">
 
+                           <i data-lucide="users" class="size-5"></i>
+
                             <span class="menu-item-text">
                                 Pelanggan
                             </span>
@@ -100,6 +114,9 @@ $menu = $this->uri->segment(1);
                     <li>
                     <a href="<?= site_url('sales') ?>"
                            class="menu-item <?= ($menu == 'sales') ? 'menu-item-active' : 'menu-item-inactive' ?>">
+
+                        <i data-lucide="user" class="size-5"></i>
+                        
                         <span class="menu-item-text">
                             Sales
                         </span>
@@ -123,6 +140,8 @@ $menu = $this->uri->segment(1);
 
                         <a href="<?= site_url('sales_order') ?>"
                            class="menu-item <?= ($menu == 'sales_order') ? 'menu-item-active' : 'menu-item-inactive' ?>">
+
+                           <i data-lucide="clipboard-list" class="size-5"></i>
 
                             <span class="menu-item-text">
                                 Sales Order
@@ -184,6 +203,8 @@ $menu = $this->uri->segment(1);
                         <a href="<?= site_url('laporan/penjualan') ?>"
                            class="menu-item <?= ($menu == 'laporan/penjualan') ? 'menu-item-active' : 'menu-item-inactive' ?>">
 
+                           <i data-lucide="bar-chart-3" class="size-5"></i>
+
                             <span class="menu-item-text">
                                 Laporan Penjualan
                             </span>
@@ -197,6 +218,8 @@ $menu = $this->uri->segment(1);
                         <a href="<?= site_url('laporan/produk') ?>"
                            class="menu-item <?= ($menu == 'laporan/produk') ? 'menu-item-active' : 'menu-item-inactive' ?>">
 
+                           <i data-lucide="package-search" class="size-5"></i>
+
                             <span class="menu-item-text">
                                 Laporan Produk
                             </span>
@@ -209,6 +232,8 @@ $menu = $this->uri->segment(1);
 
                         <a href="<?= site_url('laporan/sales') ?>"
                            class="menu-item <?= ($menu == 'laporan/sales') ? 'menu-item-active' : 'menu-item-inactive' ?>">
+
+                           <i data-lucide="users" class="size-5"></i>
 
                             <span class="menu-item-text">
                                 Laporan Sales
@@ -224,35 +249,14 @@ $menu = $this->uri->segment(1);
 
             <?php endif; ?>
 
-            <!-- ACCOUNT -->
-            <div>
-
-                <h3 class="mb-4 text-xs uppercase text-gray-400">
-                    Account
-                </h3>
-
-                <ul class="flex flex-col gap-2 mb-6">
-
-                    <li>
-
-                        <a href="<?= site_url('auth/logout') ?>"
-                           class="menu-item menu-item-inactive">
-
-                            <span class="menu-item-text">
-                                Logout
-                            </span>
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
         </nav>
 
     </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+<script>
+    lucide.createIcons();
+</script>
 
 </aside>
 

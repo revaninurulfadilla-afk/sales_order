@@ -81,8 +81,8 @@
 
                         <select
                             name="status"
-                            class="w-full rounded-lg border px-4 py-3">
-
+                            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900
+                                dark:border-gray-700 dark:bg-gray-800 dark:text-white">
                             <option value="1" <?= ($pelanggan->status == 1) ? 'selected' : '' ?>>
                                 Aktif
                             </option>

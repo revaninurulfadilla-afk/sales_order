@@ -24,6 +24,17 @@ class Produk extends CI_Controller
     {
         $data['title'] = 'Master Produk';
         $data['produk'] = $this->Produk_model->get_all();
+        $data['title'] = 'Data Produk';
+
+        $keyword = $this->input->get('keyword');
+
+        if($keyword)
+        {
+            $this->db->like('nama_produk', $keyword);
+            $this->db->or_like('kode_produk', $keyword);
+        }
+
+        $data['produk'] = $this->db->get('produk')->result();
 
         $this->load->view('templates/header',$data);
         $this->load->view('templates/sidebar');

@@ -128,7 +128,7 @@
 <div class="container">
 
     <div class="logo">
-        <img src="<?= base_url('assets/img/logo.png'); ?>" alt="Logo">
+        <img src="<?= base_url('assets/src/images/logo/logo1.png'); ?>" alt="Logo">
     </div>
 
     <h1>Login</h1>

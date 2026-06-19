@@ -20,6 +20,16 @@ class Pelanggan extends CI_Controller
         $data['title'] = 'Data Pelanggan';
         $data['pelanggan'] = $this->Pelanggan_model->get_all();
 
+        $keyword = $this->input->get('keyword');
+
+        if($keyword)
+        {
+            $this->db->like('nama_pelanggan', $keyword);
+            $this->db->or_like('kode_pelanggan', $keyword);
+        }
+
+        $data['pelanggan'] = $this->db->get('pelanggan')->result();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -39,7 +49,7 @@ class Pelanggan extends CI_Controller
 
             if (!empty($_FILES['foto']['name']))
             {
-                $config['upload_path'] = './assets/images/pelanggan/';
+                $config['upload_path'] = './assets/images/user/';
                 $config['allowed_types'] = 'jpg|jpeg|png|webp';
                 $config['encrypt_name']  = TRUE;
 

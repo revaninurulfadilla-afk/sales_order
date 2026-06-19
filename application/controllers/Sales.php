@@ -15,6 +15,16 @@ class Sales extends MY_Controller
         $data['title'] = 'Data Sales';
         $data['sales'] = $this->Sales_model->get_all();
 
+        $keyword = $this->input->get('keyword');
+
+        if($keyword)
+        {
+            $this->db->like('nama_sales', $keyword);
+            $this->db->or_like('kode_sales', $keyword);
+        }
+
+        $data['sales'] = $this->db->get('sales')->result();
+
         $this->load->view('templates/header',$data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
@@ -31,7 +41,7 @@ class Sales extends MY_Controller
 
     if (!empty($_FILES['foto']['name']))
     {
-        $config['upload_path']   = './assets/images/sales/';
+        $config['upload_path']   = './assets/images/user/';
         $config['allowed_types'] = 'jpg|jpeg|png|webp';
         $config['encrypt_name']  = TRUE;
 

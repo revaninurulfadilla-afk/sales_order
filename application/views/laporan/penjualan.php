@@ -15,8 +15,7 @@
 
             <a href="<?= site_url('laporan/cetak_penjualan') ?>?tanggal_awal=<?= $this->input->get('tanggal_awal') ?>&tanggal_akhir=<?= $this->input->get('tanggal_akhir') ?>"
                 target="_blank"
-                class="rounded-lg bg-green-500 px-4 py-2 dark:text-white">
-
+                class="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-white">
                 Cetak PDF
 
             </a>

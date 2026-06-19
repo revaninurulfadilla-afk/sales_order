@@ -30,7 +30,6 @@
                             <h3 class="mt-2 text-4xl font-bold text-gray-950 dark:text-white">
                                 <?= number_format($total_produk) ?>
                             </h3>
-                            <span class="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-sm font-medium dark:text-white">Aktif</span>
                         </div>
                     </div>
 
@@ -47,7 +46,6 @@
                             <h3 class="text-4xl font-bold text-gray-900 dark:text-white">
                                 <?= number_format($total_pelanggan) ?>
                             </h3>
-                            <span class="rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-600">Aktif</span>
                         </div>
                     </div>
 
@@ -64,7 +62,6 @@
                             <h3 class="text-4xl font-bold text-gray-900 dark:text-white">
                                 <?= number_format($total_sales) ?>
                             </h3>
-                            <span class="rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-600">Aktif</span>
                         </div>
                     </div>
 
@@ -82,7 +79,6 @@
                             <h3 class="text-4xl font-bold text-gray-900 dark:text-white">
                                 <?= number_format($total_order) ?>
                             </h3>
-                            <span class="rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-600">Order</span>
                         </div>
                     </div>
 
@@ -183,8 +179,8 @@
                                     
 
                                     <img
-    src="http://localhost/sales_order/assets/src/images/product/<?= $row->foto_produk ?>"
-    class="h-12 w-12 rounded-lg object-cover border">
+                                        src="http://localhost/sales_order/assets/src/images/product/<?= $row->foto_produk ?>"
+                                        class="h-12 w-12 rounded-lg object-cover border">
 
                                     <div>
 
