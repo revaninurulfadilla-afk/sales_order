@@ -132,6 +132,22 @@ class Produk extends CI_Controller
             ];
 
             $this->db->where('id', $id);
+
+            if(!empty($_FILES['foto_produk']['name']))
+            {
+                $config['upload_path']   = './assets/src/images/product/';
+                $config['allowed_types'] = 'jpg|jpeg|png|webp';
+                $config['encrypt_name']  = TRUE;
+
+                $this->load->library('upload', $config);
+
+                if($this->upload->do_upload('foto_produk'))
+                {
+                    $upload = $this->upload->data();
+
+                    $update['foto_produk'] = $upload['file_name'];
+                }
+            }
             $this->db->update('produk', $update);
 
             redirect('produk');

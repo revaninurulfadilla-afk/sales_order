@@ -105,6 +105,27 @@
 
                         </select>
                     </div>
+                    <div>
+                        <label class="mb-2 block dark:text-white">
+                            Foto Produk
+                        </label>
+
+                        <?php if(!empty($produk->foto_produk)): ?>
+                            <img
+                                src="<?= base_url('assets/src/images/product/'.$produk->foto_produk) ?>"
+                                class="mb-3 h-24 w-24 rounded-xl border object-cover">
+                        <?php endif; ?>
+
+                        <input
+                            type="file"
+                            name="foto_produk"
+                            accept="image/*"
+                            class="w-full rounded-lg border px-4 py-3 dark:text-white">
+
+                        <p class="mt-2 text-xs text-gray-500">
+                            Kosongkan jika tidak ingin mengganti foto.
+                        </p>
+                    </div>
 
                     <div class="flex gap-3">
 
